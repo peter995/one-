@@ -1,7 +1,7 @@
 <template>
     <div>
         <!--    轮播图-->
-        <swiper :lbtList="lbtList" :isfull="true"></swiper>
+        <swiper2 :lbtList="lbtList" :isfull="true"></swiper2>
 <!--        九宫格改造-->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -39,7 +39,7 @@
 <script>
     import {Toast} from 'mint-ui'
 
-    import swiper from "../subcomponents/swiper.vue";
+    import swiper2 from "../subcomponents/swiper2.vue";
 
     export default {
         data() {
@@ -53,7 +53,7 @@
         ,
         methods: {
             getLbt() {
-                this.$http.get('api/getlunbo').then(result => {
+                this.$http.get('api/getnewslist').then(result => {
                     // console.log(result.body)
                     if (result.body.status === 0) {
                         this.lbtList = result.body.message;
@@ -64,7 +64,7 @@
             }
         },
         components:{
-            swiper
+            swiper2
         }
     }
 </script>
